@@ -1,5 +1,10 @@
 example_id
 Example name
+Example Breakfast
+Example first dishes
+Example 15 min
+Example 150 RUB
+Example egg:4:pi, milk:300:ml
 hard work
 hard work
 hard work
