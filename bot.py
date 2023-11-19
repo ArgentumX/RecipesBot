@@ -26,3 +26,6 @@ def text(message):
         bot.send_message(message.chat.id, 'Вы выбрали случайный рецепт')
     elif message.text == 'Button_2':
         bot.send_message(message.chat.id, 'Вы выбрали button_2')
+
+
+bot.polling(none_stop=True)
