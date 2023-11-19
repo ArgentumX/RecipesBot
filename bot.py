@@ -1,4 +1,7 @@
 import os, data
+
+import keyboard as keyboard
+
 from objects import Recipe, RecipesBase
 import telebot
 from telebot import types
@@ -21,10 +24,10 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def text(message):
     if message.text == 'Случайный рецепт':
-        bot.send_message(message.chat.id, recipe_base.get_random_recipe().get_recipe_message())
-        keyboard = types.InlineKeyboardMarkup()
+        board = types.InlineKeyboardMarkup()
         key_another_recipe = types.InlineKeyboardButton(text='Сопряжённый рецепт', callback_data='another_recipe')
-        keyboard.add(key_another_recipe)
+        board.add(key_another_recipe)
+        bot.send_message(message.chat.id, recipe_base.get_random_recipe().get_recipe_message(), reply_markup=board)
     elif message.text == 'Button_2':
         bot.send_message(message.chat.id, 'Вы выбрали button_2')
 
