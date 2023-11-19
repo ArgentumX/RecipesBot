@@ -32,4 +32,10 @@ def text(message):
         bot.send_message(message.chat.id, 'Вы выбрали button_2')
 
 
+@bot.callback_query_handler(func=lambda call: True)
+def callback_worker(call):
+    if call.data == 'another_recipe':
+        bot.send_message(call.message.chat.id, 'Сопряжённый рецепт')
+
+
 bot.polling(none_stop=True)
