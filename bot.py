@@ -1,7 +1,7 @@
-import os
-import objects, data
+import os, data
+from objects import Recipe, RecipesBase
 
 
-recipes_base = data.load_recipes()
+recipe_base = RecipesBase(data.load_recipes())
 
 

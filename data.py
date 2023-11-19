@@ -14,5 +14,6 @@ def load_recipes():
 
             rec = Recipe(id, name, description)
             result_recipes.append(rec)
+            f.close()
     print(f"Loaded {len(result_recipes)} recipes")
     return result_recipes
