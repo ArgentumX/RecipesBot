@@ -2,20 +2,22 @@ import random
 
 
 class Recipe(object):
-    def __init__(self, id, recipe_name, description):
+    def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, description):
         self.id = id
         self.recipes_name = recipe_name
+        self.eating_time = eating_time
+        self.food_type = food_type
+        self.cooking_time = cooking_time
+        self.cost = cost
+        self.ingredients = ingredients
         self.description = description
-        self.eatingtime = eatingtime
-        self.foodtype = foodtype
-        self.cookingtime = cookingtime
-        self.coastfood = coastfood
-        self.foodmass = foodmass
-
 
     def get_recipe_message(self):
         result = ""
-        result += self.recipes_name + "\n\n"
+        result += self.recipes_name + f"({self.food_type})\n\n"
+        result += f"Время готовки: {self.cooking_time} минут\n"
+        result += f"Цена: {self.cost} рублей\n\n"
+
         result += self.description
         return result
 
