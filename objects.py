@@ -1,3 +1,6 @@
+import random
+
+
 class Recipe(object):
     def __init__(self, id, recipe_name, description):
         self.id = id
@@ -21,3 +24,6 @@ class RecipesBase(object):
 
     def get_recipes_amount(self):
         return len(self.recipes)
+
+    def get_random_recipe(self):
+        return self.recipes[random.randint(0, self.get_recipes_amount() - 1)]
