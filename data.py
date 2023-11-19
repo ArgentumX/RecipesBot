@@ -2,10 +2,12 @@ import os
 from objects import Recipe
 
 
+codecs = ["cp1252", "cp437", "utf-16be", "utf-16"]
+
 def load_recipes():
     result_recipes = []
     for file_name in os.listdir('recipes'):
-        with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r') as f:
+        with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding=codecs) as f:
             id = f.readline().strip()
             name = f.readline().strip()
             description = ""
@@ -22,4 +24,3 @@ def load_recipes():
             f.close()
     print(f"Loaded {len(result_recipes)} recipes")
     return result_recipes
-
