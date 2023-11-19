@@ -6,7 +6,7 @@ BREAKFAST
 150
 яица:4:шт, молоко:300:мл
 плита
-conjugate_id
+example_id2
 hard work
 hard work
 hard work

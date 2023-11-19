@@ -2,7 +2,7 @@ import random
 
 
 class Recipe(object):
-    def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, description):
+    def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method,conjugate_id, description):
         self.id = id
         self.recipes_name = recipe_name
         self.eating_time = eating_time
@@ -10,6 +10,8 @@ class Recipe(object):
         self.cooking_time = cooking_time
         self.cost = cost
         self.ingredients = ingredients
+        self.cooking_method = cooking_method
+        self.conjugate_id = conjugate_id
         self.description = description
 
     def get_recipe_message(self):
@@ -30,6 +32,7 @@ class RecipesBase(object):
         for recipe in self.recipes:
             if recipe.id == id:
                 return recipe
+        print("not found")
 
     def get_recipe_by_name(self, name):
         for recipe in self.recipes:
