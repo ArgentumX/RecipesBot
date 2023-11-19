@@ -2,8 +2,8 @@ example_id
 Example name
 BREAKFAST
 основное
-15 min
-150 RUB
+15
+150
 яица:4:шт, молоко:300:мл
 hard work
 hard work
