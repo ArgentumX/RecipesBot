@@ -23,7 +23,7 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def text(message):
     if message.text == 'Случайный рецепт':
-        bot.send_message(message.chat.id, recipe_base.get_random_recipe().description)
+        bot.send_message(message.chat.id, recipe_base.get_random_recipe().get_recipe_message())
     elif message.text == 'Button_2':
         bot.send_message(message.chat.id, 'Вы выбрали button_2')
 

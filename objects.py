@@ -7,6 +7,12 @@ class Recipe(object):
         self.recipes_name = recipe_name
         self.description = description
 
+    def get_recipe_message(self):
+        result = ""
+        result += self.recipes_name + "\n\n"
+        result += self.description
+        return result
+
 
 class RecipesBase(object):
     def __init__(self, recipes):
@@ -19,7 +25,7 @@ class RecipesBase(object):
 
     def get_recipe_by_name(self, name):
         for recipe in self.recipes:
-            if recipe.id == name:
+            if recipe.name == name:
                 return recipe
 
     def get_recipes_amount(self):
