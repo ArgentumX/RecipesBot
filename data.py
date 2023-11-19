@@ -5,7 +5,7 @@ from objects import Recipe
 def load_recipes():
     result_recipes = []
     for file_name in os.listdir('recipes'):
-        with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r') as f:
+        with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding='utf-8') as f:
             id = f.readline().strip()
             name = f.readline().strip()
             description = ""
