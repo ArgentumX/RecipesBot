@@ -1,1 +1,1 @@
-TOKEN = "er"
+TOKEN = ""
