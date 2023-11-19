@@ -6,6 +6,12 @@ class Recipe(object):
         self.id = id
         self.recipes_name = recipe_name
         self.description = description
+        self.eatingtime = eatingtime
+        self.foodtype = foodtype
+        self.cookingtime = cookingtime
+        self.coastfood = coastfood
+        self.foodmass = foodmass
+
 
     def get_recipe_message(self):
         result = ""
