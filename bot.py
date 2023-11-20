@@ -24,7 +24,7 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def text(message):
     if message.text == 'Случайный рецепт':
-        UI.recipe_display(1, message, 0)
+        UI.show_recipe(message, recipe_base.get_random_recipe())
     elif message.text == 'Поиск по параметрам':
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         btn_find_cost = types.KeyboardButton('Поиск по цене')
@@ -40,7 +40,7 @@ def text(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
     if call.data == 'another_recipe':
-        UI.recipe_display(2, 0, call)
+        UI.show_conjugated_recipe(call.message)
 
 
 bot.polling(none_stop=True)
