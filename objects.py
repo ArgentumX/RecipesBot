@@ -44,3 +44,42 @@ class RecipesBase(object):
 
     def get_random_recipe(self):
         return self.recipes[random.randint(0, self.get_recipes_amount() - 1)]
+
+    def get_recipes_below_cost(self, cost):
+        result = []
+        for recipe in self.recipes:
+            if recipe.cost <= cost:
+                result.append(recipe)
+        return result
+
+    def get_recipes_below_time(self, time):
+        result = []
+        for recipe in self.recipes:
+            if recipe.time <= time:
+                result.append(recipe)
+        return result
+
+    def get_recipes_by_method(self, method):
+        result = []
+        for recipe in self.recipes:
+            if recipe.cooking_method == method:
+                result.append(recipe)
+        return result
+
+    def get_recipes_by_eating_time(self, eating_time):
+        result = []
+        for recipe in self.recipes:
+            if recipe.eating_time == eating_time:
+                result.append(recipe)
+        return result
+
+    def get_recipes_by_food_type(self, food_type):
+        result = []
+        for recipe in self.recipes:
+            if recipe.food_type == food_type:
+                result.append(recipe)
+        return result
+
+
+
+

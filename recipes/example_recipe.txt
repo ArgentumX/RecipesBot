@@ -1,6 +1,6 @@
 example_id
 Example name
-BREAKFAST
+завтрак
 основное
 15
 150
