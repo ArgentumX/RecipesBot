@@ -1,8 +1,9 @@
-import random
+import random, utils
 
 
 class Recipe(object):
-    def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method,conjugate_id, description):
+    def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method,
+                 conjugate_id, description):
         self.id = id
         self.recipes_name = recipe_name
         self.eating_time = eating_time
@@ -42,8 +43,26 @@ class RecipesBase(object):
     def get_recipes_amount(self):
         return len(self.recipes)
 
-    def get_random_recipe(self):
+    def get_recipes(self):
         return self.recipes[random.randint(0, self.get_recipes_amount() - 1)]
+
+    def get_random_recipe(self):
+        return utils.get_random_from_list(self.recipes)
+
+    def get_recipe_below_cost(self, cost):
+        return utils.get_random_from_list(get_recipes_below_cost(self, cost))
+
+    def get_recipe_below_time(self, time):
+        return utils.get_random_from_list(get_recipes_below_time(self, time))
+
+    def get_recipe_by_method(self, method):
+        return utils.get_random_from_list(get_recipes_by_method(self, method))
+
+    def get_recipe_by_eating_time(self, eating_time):
+        return utils.get_recipes_by_eating_time(get_recipes_by_eating_time(self, eating_time))
+
+    def get_recipes_by_food_type(self, food_type):
+        return utils.get_recipes_by_eating_time(get_recipes_by_food_type(self, food_type))
 
     def get_recipes_below_cost(self, cost):
         result = []
@@ -79,7 +98,3 @@ class RecipesBase(object):
             if recipe.food_type == food_type:
                 result.append(recipe)
         return result
-
-
-
-
