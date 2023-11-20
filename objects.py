@@ -59,10 +59,13 @@ class RecipesBase(object):
         return utils.get_random_from_list(get_recipes_by_method(self, method))
 
     def get_recipe_by_eating_time(self, eating_time):
-        return utils.get_recipes_by_eating_time(get_recipes_by_eating_time(self, eating_time))
+        return utils.get_random_from_list(get_recipes_by_eating_time(self, eating_time))
 
     def get_recipes_by_food_type(self, food_type):
-        return utils.get_recipes_by_eating_time(get_recipes_by_food_type(self, food_type))
+        return utils.get_random_from_list(get_recipes_by_food_type(self, food_type))
+
+    def get_recipes_below_ingredients(self, ingredients_list):
+        pass
 
     def get_recipes_below_cost(self, cost):
         result = []
@@ -98,3 +101,13 @@ class RecipesBase(object):
             if recipe.food_type == food_type:
                 result.append(recipe)
         return result
+
+    def get_recipes_below_ingredients(self, ingredients_list):
+        pass
+
+
+class Ingredient(object):
+    def __init__(self, type, amount, units):
+        self.type = type
+        self.amount = amount
+        self.units = units

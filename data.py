@@ -1,5 +1,5 @@
 import os
-from objects import Recipe
+from objects import Recipe, Ingredient
 
 
 def load_recipes():
@@ -13,7 +13,7 @@ def load_recipes():
             food_type = f.readline().strip()
             cooking_time = f.readline().strip()
             cost = f.readline().strip()
-            ingredients = f.readline().strip()
+            ingredients = get_ingredient_list(f.readline().strip())
             cooking_method = f.readline().strip()
             conjugate_id = f.readline().strip()
 
@@ -25,3 +25,12 @@ def load_recipes():
             f.close()
     print(f"Loaded {len(result_recipes)} recipes")
     return result_recipes
+
+
+def get_ingredient_list(data_s):
+    result = []
+    for segment_s in data_s.split(", "):
+        spited = segment_s.split(":")
+        ingredient = Ingredient(spited[0], float(spited[1]), spited[2])
+        result.append(Ingredient)
+    return result
