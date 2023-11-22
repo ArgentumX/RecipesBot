@@ -8,7 +8,6 @@ def load_recipes():
         with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding='utf-8') as f:
             id = f.readline().strip()
             name = f.readline().strip()
-            description = ""
             eating_time = f.readline().strip()
             food_type = f.readline().strip()
             cooking_time = f.readline().strip()
@@ -17,6 +16,7 @@ def load_recipes():
             cooking_method = f.readline().strip()
             conjugate_id = f.readline().strip()
 
+            description = ""
             for line in f.readlines():
                 description += line
 
