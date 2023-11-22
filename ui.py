@@ -16,3 +16,7 @@ class ButtonMaster(object):
 
     def show_conjugated_recipe(self, msg):
         self.show_recipe(msg, self.recipe_base.get_recipe_by_id(self.current_recipe.conjugate_id))
+
+    def draw_start_menu(self):
+        # Отрисовка стартового меню (Таня)
+        pass

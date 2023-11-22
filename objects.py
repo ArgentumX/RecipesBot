@@ -50,19 +50,19 @@ class RecipesBase(object):
         return utils.get_random_from_list(self.recipes)
 
     def get_recipe_below_cost(self, cost):
-        return utils.get_random_from_list(get_recipes_below_cost(self, cost))
+        return utils.get_random_from_list(self.get_recipes_below_cost(cost))
 
     def get_recipe_below_time(self, time):
-        return utils.get_random_from_list(get_recipes_below_time(self, time))
+        return utils.get_random_from_list(self.get_recipes_below_time(time))
 
     def get_recipe_by_method(self, method):
-        return utils.get_random_from_list(get_recipes_by_method(self, method))
+        return utils.get_random_from_list(self.get_recipes_by_method(method))
 
     def get_recipe_by_eating_time(self, eating_time):
-        return utils.get_random_from_list(get_recipes_by_eating_time(self, eating_time))
+        return utils.get_random_from_list(self.get_recipes_by_eating_time(eating_time))
 
     def get_recipes_by_food_type(self, food_type):
-        return utils.get_random_from_list(get_recipes_by_food_type(self, food_type))
+        return utils.get_random_from_list(self.get_recipes_by_food_type(food_type))
 
     def get_recipes_below_ingredients(self, ingredients_list):
         pass

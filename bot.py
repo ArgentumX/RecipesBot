@@ -35,6 +35,9 @@ def text(message):
         markup.add(btn_find_cost, btn_find_time, btn_find_cook, btn_find_time_eat, btn_find_type)
         send_message = 'Выберите параметр поиска'
         bot.send_message(message.chat.id, send_message, reply_markup=markup)
+    elif message.text == 'Поиск по времени приёма пищи':
+        # **Выбор времени**
+        UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("обед"))
 
 
 @bot.callback_query_handler(func=lambda call: True)
