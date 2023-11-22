@@ -11,14 +11,10 @@ bot = telebot.TeleBot('6856001156:AAFSstoCmTOvjUat-1UapdXN3b0PFAPDmr8')
 recipe_base = RecipesBase(data.load_recipes())
 UI = ButtonMaster(recipe_base, bot)
 
+
 @bot.message_handler(commands=['start'])
 def start(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    btn_rand_recipe = types.KeyboardButton('Случайный рецепт')
-    btn_find_params = types.KeyboardButton('Поиск по параметрам')
-    markup.add(btn_rand_recipe, btn_find_params)
-    send_message = 'Пожалуйста, выберите действие'
-    bot.send_message(message.chat.id, send_message, reply_markup=markup)
+    UI.draw_start_menu(bot, message)
 
 
 @bot.message_handler(content_types=['text'])
@@ -26,18 +22,17 @@ def text(message):
     if message.text == 'Случайный рецепт':
         UI.show_recipe(message, recipe_base.get_random_recipe())
     elif message.text == 'Поиск по параметрам':
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        btn_find_cost = types.KeyboardButton('Поиск по цене')
-        btn_find_time = types.KeyboardButton('Поиск по времени')
-        btn_find_cook = types.KeyboardButton('Поиск по способу приготовления')
-        btn_find_time_eat = types.KeyboardButton('Поиск по времени приёма пищи')
-        btn_find_type = types.KeyboardButton('Поиск по типу блюда')
-        markup.add(btn_find_cost, btn_find_time, btn_find_cook, btn_find_time_eat, btn_find_type)
-        send_message = 'Выберите параметр поиска'
-        bot.send_message(message.chat.id, send_message, reply_markup=markup)
+        UI.draw_selection_search_menu(bot, message)
     elif message.text == 'Поиск по времени приёма пищи':
-        # **Выбор времени**
+        UI.draw_eating_time(bot, message)
+    elif message.text == 'Обед':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("обед"))
+    '''
+    elif message.text == 'Завтрак':
+        UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("завтрак"))
+    elif message.text == 'Ужин':
+        UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("ужин"))
+    '''
 
 
 @bot.callback_query_handler(func=lambda call: True)
