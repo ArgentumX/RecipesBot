@@ -27,10 +27,13 @@ def text(message):
         UI.draw_eating_time(bot, message)
     elif message.text == 'Обед':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("обед"))
+        UI.draw_start_menu(bot, message)
     elif message.text == 'Завтрак':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("завтрак"))
+        UI.draw_start_menu(bot, message)
     elif message.text == 'Ужин':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("ужин"))
+        UI.draw_start_menu(bot, message)
 
 
 @bot.callback_query_handler(func=lambda call: True)

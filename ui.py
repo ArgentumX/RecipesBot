@@ -8,9 +8,12 @@ class ButtonMaster(object):
         self.current_recipe = 0
 
     def show_recipe(self, msg, recipe):
+        if recipe is None:
+            return
         board = types.InlineKeyboardMarkup()
         if recipe.conjugate_id != "":
-            key_another_recipe = types.InlineKeyboardButton(text='Сопряжённый рецепт', callback_data='another_recipe:' + recipe.conjugate_id)
+            key_another_recipe = types.InlineKeyboardButton(text='Сопряжённый рецепт',
+                                                            callback_data='another_recipe:' + recipe.conjugate_id)
             board.add(key_another_recipe)
         self.current_recipe = recipe
         self.bot.send_message(msg.chat.id, self.current_recipe.get_recipe_message(), reply_markup=board)
@@ -24,8 +27,7 @@ class ButtonMaster(object):
         btn_rand_recipe = types.KeyboardButton('Случайный рецепт')
         btn_find_params = types.KeyboardButton('Поиск по параметрам')
         markup.add(btn_rand_recipe, btn_find_params)
-        send_message = 'Пожалуйста, выберите действие'
-        bot.send_message(msg.chat.id, send_message, reply_markup=markup)
+        bot.send_message(msg.chat.id, 'Пожалуйста, выберите действие', reply_markup=markup)
 
     def draw_selection_search_menu(self, bot, msg):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -34,7 +36,7 @@ class ButtonMaster(object):
         btn_find_cook = types.KeyboardButton('Поиск по способу приготовления')
         btn_find_time_eat = types.KeyboardButton('Поиск по времени приёма пищи')
         btn_find_type = types.KeyboardButton('Поиск по типу блюда')
-        markup.add(btn_find_cost, btn_find_time, btn_find_cook, btn_find_time_eat, btn_find_type)
+        markup.add(btn_find_cost, btn_find_time, btn_find_cook, btn_find_time_eat, btn_find_type, resize)
         send_message = 'Выберите параметр поиска'
         bot.send_message(msg.chat.id, send_message, reply_markup=markup)
 
