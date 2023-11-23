@@ -16,21 +16,12 @@ class Recipe(object):
         self.description = description
 
     def get_recipe_message(self):
-        loc_ingredients = ''
-        for ingredient in self.ingredients:
-            print(ingredient)
-            loc_ingredients += f'{ingredient}\n'
-        print(f'loc_ingredients: {loc_ingredients}')
-
         result = ""
-        result += self.recipes_name + f" ({self.food_type})\n\n"
-        # print(self.ingredients)
-        # result += f'Ингридиенты: {self.ingredients}\n'
-        result += f'Ингридиенты:\n{loc_ingredients}\n'
-        result += f"Цена: {self.cost} рублей\n\n"
+        result += self.recipes_name + f"({self.food_type})\n\n"
         result += f"Время готовки: {self.cooking_time} минут\n"
+        result += f"Цена: {self.cost} рублей\n\n"
 
-        result += f'\n{self.description}'
+        result += self.description
         return result
 
 
@@ -42,7 +33,12 @@ class RecipesBase(object):
         for recipe in self.recipes:
             if recipe.id == id:
                 return recipe
-        print("not found")
+
+    def has_id(self, id):
+        for recipe in self.recipes:
+            if recipe.id == id:
+                return True
+        return False
 
     def get_recipe_by_name(self, name):
         for recipe in self.recipes:

@@ -6,15 +6,15 @@ def load_recipes():
     result_recipes = []
     for file_name in os.listdir('recipes'):
         with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding='utf-8') as f:
-            id = f.readline().strip()
+            id = f.readline().strip().lower()
             name = f.readline().strip()
-            eating_time = f.readline().strip()
-            food_type = f.readline().strip()
+            eating_time = f.readline().strip().lower()
+            food_type = f.readline().strip().lower()
             cooking_time = f.readline().strip()
             cost = f.readline().strip()
             ingredients = get_ingredient_list(f.readline().strip())
             cooking_method = f.readline().strip()
-            conjugate_id = f.readline().strip()
+            conjugate_id = f.readline().strip().lower()
 
             description = ""
             for line in f.readlines():
@@ -29,18 +29,8 @@ def load_recipes():
 
 def get_ingredient_list(data_s):
     result = []
-    # result = ''
     for segment_s in data_s.split(", "):
-        # print(1, segment_s)
-        spited = segment_s.replace(":", '-', 1)
-        # print(2, spited)
-        spited = spited.replace(":", ' ')
-        spited = spited.replace("-", ': ')
-        # print(3, spited)
-
-        # ingredients = Ingredient(spited[0], float(spited[1]), spited[2])
-        # result.append(Ingredient)
-        result.append(spited)
-        # result += spited
-    print(f'result: {result}')
+        spited = segment_s.split(":")
+        ingredient = Ingredient(spited[0], float(spited[1]), spited[2])
+        result.append(Ingredient)
     return result
