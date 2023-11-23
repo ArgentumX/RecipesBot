@@ -8,7 +8,6 @@ from telebot import types
 from ui import ButtonMaster
 
 bot = telebot.TeleBot('6856001156:AAFSstoCmTOvjUat-1UapdXN3b0PFAPDmr8')
-# bot = telebot.TeleBot('6338143714:AAGg0iNs9VaZwhxPNsRIH7tafk0ksWfUNJc')
 recipe_base = RecipesBase(data.load_recipes())
 UI = ButtonMaster(recipe_base, bot)
 

@@ -29,18 +29,10 @@ def load_recipes():
 
 def get_ingredient_list(data_s):
     result = []
-    # result = ''
     for segment_s in data_s.split(", "):
-        # print(1, segment_s)
         spited = segment_s.replace(":", '-', 1)
-        # print(2, spited)
         spited = spited.replace(":", ' ')
         spited = spited.replace("-", ': ')
-        # print(3, spited)
-
-        # ingredients = Ingredient(spited[0], float(spited[1]), spited[2])
-        # result.append(Ingredient)
         result.append(spited)
-        # result += spited
     print(f'result: {result}')
     return result

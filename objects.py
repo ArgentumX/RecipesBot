@@ -24,8 +24,6 @@ class Recipe(object):
 
         result = ""
         result += self.recipes_name + f" ({self.food_type})\n\n"
-        # print(self.ingredients)
-        # result += f'Ингридиенты: {self.ingredients}\n'
         result += f'Ингридиенты:\n{loc_ingredients}\n'
         result += f"Цена: {self.cost} рублей\n\n"
         result += f"Время готовки: {self.cooking_time} минут\n"
