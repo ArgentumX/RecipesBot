@@ -27,18 +27,18 @@ def text(message):
         UI.draw_eating_time(bot, message)
     elif message.text == 'Обед':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("обед"))
-    '''
     elif message.text == 'Завтрак':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("завтрак"))
     elif message.text == 'Ужин':
         UI.show_recipe(message, recipe_base.get_recipe_by_eating_time("ужин"))
-    '''
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
-    if call.data == 'another_recipe':
-        UI.show_conjugated_recipe(call.message)
+    spited = call.data.split(":")
+    if spited[0] == 'another_recipe':
+        UI.show_conjugated_recipe(spited[1])
+
 
 
 bot.polling(none_stop=True)

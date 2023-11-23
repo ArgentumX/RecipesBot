@@ -33,7 +33,12 @@ class RecipesBase(object):
         for recipe in self.recipes:
             if recipe.id == id:
                 return recipe
-        print("not found")
+
+    def has_id(self, id):
+        for recipe in self.recipes:
+            if recipe.id == id:
+                return True
+        return False
 
     def get_recipe_by_name(self, name):
         for recipe in self.recipes:

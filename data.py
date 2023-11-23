@@ -6,15 +6,15 @@ def load_recipes():
     result_recipes = []
     for file_name in os.listdir('recipes'):
         with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding='utf-8') as f:
-            id = f.readline().strip()
+            id = f.readline().strip().lower()
             name = f.readline().strip()
-            eating_time = f.readline().strip()
-            food_type = f.readline().strip()
+            eating_time = f.readline().strip().lower()
+            food_type = f.readline().strip().lower()
             cooking_time = f.readline().strip()
             cost = f.readline().strip()
             ingredients = get_ingredient_list(f.readline().strip())
             cooking_method = f.readline().strip()
-            conjugate_id = f.readline().strip()
+            conjugate_id = f.readline().strip().lower()
 
             description = ""
             for line in f.readlines():
