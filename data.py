@@ -34,5 +34,4 @@ def get_ingredient_list(data_s):
         spited = spited.replace(":", ' ')
         spited = spited.replace("-", ': ')
         result.append(spited)
-    print(f'result: {result}')
     return result
