@@ -19,7 +19,7 @@ class Recipe(object):
         loc_ingredients = ''
         for ingredient in self.ingredients:
             print(ingredient)
-            loc_ingredients += f'{ingredient}\n'
+            loc_ingredients += f'🟢 {ingredient}\n'
         print(f'loc_ingredients: {loc_ingredients}')
 
         result = ""
