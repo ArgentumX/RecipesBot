@@ -18,9 +18,7 @@ class Recipe(object):
     def get_recipe_message(self):
         loc_ingredients = ''
         for ingredient in self.ingredients:
-            print(ingredient)
             loc_ingredients += f'🟢 {ingredient}\n'
-        print(f'loc_ingredients: {loc_ingredients}')
 
         result = ""
         result += self.recipes_name + f" ({self.food_type})\n\n"
