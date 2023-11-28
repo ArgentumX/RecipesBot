@@ -8,8 +8,8 @@ def load_recipes():
         with open(os.path.join(os.getcwd() + "/recipes", file_name), 'r', encoding='utf-8') as f:
             id = f.readline().strip()
             name = f.readline().strip()
-            eating_time = f.readline().strip()
-            food_type = f.readline().strip()
+            eating_time = f.readline().strip().lower()
+            food_type = f.readline().strip().lower()
             cooking_time = f.readline().strip()
             cost = f.readline().strip()
             ingredients = get_ingredient_list(f.readline().strip())

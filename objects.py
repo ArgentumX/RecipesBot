@@ -34,6 +34,12 @@ class RecipesBase(object):
     def __init__(self, recipes):
         self.recipes = recipes
 
+    def has_id(self, id):
+        for recipe in self.recipes:
+            if recipe.id == id:
+                return True
+        return False
+
     def get_recipe_by_id(self, id):
         for recipe in self.recipes:
             if recipe.id == id:
