@@ -1,7 +1,5 @@
 import os, data
 
-import keyboard as keyboard
-
 from objects import Recipe, RecipesBase
 import telebot
 from telebot import types
