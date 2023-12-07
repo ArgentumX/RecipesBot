@@ -60,8 +60,8 @@ class RecipesBase(object):
     def get_random_recipe(self):
         return utils.get_random_from_list(self.recipes)
 
-    def get_recipe_below_cost(self, cost1, cost2):
-        return utils.get_random_from_list(self.get_recipes_below_cost(cost1, cost2))
+    def get_recipe_by_cost_interval(self, cost1, cost2):
+        return utils.get_random_from_list(self.get_recipes_by_cost_interval(cost1, cost2))
 
     def get_recipe_below_time(self, time):
         return utils.get_random_from_list(self.get_recipes_below_time(time))
@@ -78,7 +78,7 @@ class RecipesBase(object):
     def get_recipe_below_ingredients(self, ingredients_list):
         pass
 
-    def get_recipes_below_cost(self, cost1, cost2):
+    def get_recipes_by_cost_interval(self, cost1, cost2):
         result = []
         for recipe in self.recipes:
             if (int(recipe.cost) >= cost1) and (int(recipe.cost) <= cost2):

@@ -35,14 +35,14 @@ def text(message):
         UI.draw_start_menu(bot, message)
     elif message.text == 'Поиск по цене':
         UI.draw_cost(bot, message)
-    elif message.text == 'до 400 ₽':
-        UI.show_recipe(message, recipe_base.get_recipe_below_cost(0, 400))
+    elif message.text == 'до 200 ₽':
+        UI.show_recipe(message, recipe_base.get_recipe_by_cost_interval(0, 200))
         UI.draw_start_menu(bot, message)
-    elif message.text == '400 - 700 ₽':
-        UI.show_recipe(message, recipe_base.get_recipe_below_cost(400, 700))
+    elif message.text == '200 - 400 ₽':
+        UI.show_recipe(message, recipe_base.get_recipe_by_cost_interval(200, 400))
         UI.draw_start_menu(bot, message)
-    elif message.text == 'от 700 ₽':
-        UI.show_recipe(message, recipe_base.get_recipe_below_cost(700, 1000000000))
+    elif message.text == 'от 400 ₽':
+        UI.show_recipe(message, recipe_base.get_recipe_by_cost_interval(400, 1000000000))
         UI.draw_start_menu(bot, message)
     elif message.text == 'Поиск по типу блюда':
         UI.draw_type(bot, message)

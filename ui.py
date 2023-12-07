@@ -51,9 +51,9 @@ class ButtonMaster(object):
 
     def draw_cost(self, bot, msg):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        btn_400 = types.KeyboardButton('до 400 ₽')
-        btn_400_700 = types.KeyboardButton('400 - 700 ₽')
-        btn_700 = types.KeyboardButton('от 700 ₽')
+        btn_400 = types.KeyboardButton('до 200 ₽')
+        btn_400_700 = types.KeyboardButton('200 - 400 ₽')
+        btn_700 = types.KeyboardButton('от 400 ₽')
         markup.add(btn_400, btn_400_700, btn_700)
         send_message = 'Выберите стоимость блюда'
         bot.send_message(msg.chat.id, send_message, reply_markup=markup)
