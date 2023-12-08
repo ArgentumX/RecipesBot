@@ -3,7 +3,7 @@ import random, utils
 
 class Recipe(object):
     def __init__(self, id, recipe_name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method,
-                 conjugate_id, description):
+                 conjugate_id, portion_amount, description):
         self.id = id
         self.recipes_name = recipe_name
         self.eating_time = eating_time
@@ -13,6 +13,7 @@ class Recipe(object):
         self.ingredients = ingredients
         self.cooking_method = cooking_method
         self.conjugate_id = conjugate_id
+        self.portion_amount = portion_amount
         self.description = description
 
     def get_recipe_message(self):
@@ -25,6 +26,7 @@ class Recipe(object):
         result += f'Ингридиенты:\n{loc_ingredients}\n'
         result += f"Цена: {self.cost} рублей\n\n"
         result += f"Время готовки: {self.cooking_time} минут\n"
+        result += f"Количество порций: {self.portion_amount}\n"
 
         result += f'\n{self.description}'
         return result

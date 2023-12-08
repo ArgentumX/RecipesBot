@@ -15,12 +15,14 @@ def load_recipes():
             ingredients = get_ingredient_list(f.readline().strip())
             cooking_method = f.readline().strip()
             conjugate_id = f.readline().strip()
+            portion_amount = f.readline().strip()
 
             description = ""
             for line in f.readlines():
                 description += line
 
-            rec = Recipe(id, name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method, conjugate_id, description)
+            rec = Recipe(id, name, eating_time, food_type, cooking_time, cost, ingredients, cooking_method,
+                         conjugate_id, portion_amount, description)
             result_recipes.append(rec)
             f.close()
     print(f"Loaded {len(result_recipes)} recipes")
