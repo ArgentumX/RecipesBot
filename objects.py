@@ -26,7 +26,7 @@ class Recipe(object):
         result += f'Ингридиенты:\n{loc_ingredients}\n'
         result += f"Цена: {self.cost} рублей\n\n"
         result += f"Время готовки: {self.cooking_time} минут\n"
-        result += f"Количество порций: {self.portion_amount}\n"
+        result += f"{self.portion_amount}\n"
 
         result += f'\n{self.description}'
         return result
