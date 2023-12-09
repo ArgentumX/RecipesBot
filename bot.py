@@ -52,8 +52,8 @@ def text(message):
     elif message.text == 'Основное блюдо':
         UI.show_recipe(message, recipe_base.get_recipe_by_food_type('основное'))
         UI.draw_start_menu(bot, message)
-    elif message.text == 'Закуска':
-        UI.show_recipe(message, recipe_base.get_recipe_by_food_type('закуска'))
+    elif message.text == 'Салат':
+        UI.show_recipe(message, recipe_base.get_recipe_by_food_type('салат'))
         UI.draw_start_menu(bot, message)
 
 
