@@ -60,9 +60,10 @@ class ButtonMaster(object):
 
     def draw_type(self, bot, msg):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        btn_des = types.KeyboardButton('Десерт')
+        # btn_des = types.KeyboardButton('Десерт')
         btn_base = types.KeyboardButton('Основное блюдо')
         btn_add = types.KeyboardButton('Салат')
-        markup.add(btn_des, btn_base, btn_add)
+        # markup.add(btn_des, btn_base, btn_add)
+        markup.add(btn_base, btn_add)
         send_message = 'Выберите тип блюда'
         bot.send_message(msg.chat.id, send_message, reply_markup=markup)
